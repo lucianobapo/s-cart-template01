@@ -23,8 +23,8 @@ class TServiceProvider extends ServiceProvider
 
         //Publish Config
         $this->publishes([
-            $projectRootDir.'/public/templates/tigresatemplates' => public_path('templates/tigresatemplates'),
-            $projectRootDir.'/views/templates/tigresatemplates' => resource_path('views/templates/tigresatemplates'),            
+            $projectRootDir.'src/public/templates/tigresatemplates' => public_path('templates/tigresatemplates'),
+            $projectRootDir.'src/views/templates/tigresatemplates' => resource_path('views/templates/tigresatemplates'),            
         ], 'erpnet');
 
     }
