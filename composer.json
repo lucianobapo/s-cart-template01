@@ -1,7 +1,7 @@
 {
-  "name": "ilhanet/erpnet-permissions",
+  "name": "ilhanet/s-cart-template01",
   "license": "MIT",
-  "version": "0.1.1",
+  "version": "0.0.1",
   "authors": [
     {
       "name": "Luciano Porto",
@@ -17,18 +17,18 @@
   },
   "autoload": {
     "psr-4": {
-      "ErpNET\\Permissions\\": "src/"
+      "ErpNET\\SCartTemplate\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "ErpNET\\PermissionsTests\\": "tests/"
+      "ErpNET\\SCartTemplateTests\\": "tests/"
     }
   },
   "extra": {
     "laravel": {
       "providers": [
-        "ErpNET\\Permissions\\Providers\\ErpnetPermissionsServiceProvider"
+        "ErpNET\\SCartTemplate\\Providers\\TServiceProvider"
       ]
     }
   }

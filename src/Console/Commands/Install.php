@@ -1,6 +1,6 @@
 <?php
 
-namespace ErpNET\Permissions\Console\Commands;
+namespace ErpNET\SCartTemplate\Console\Commands;
 
 use Illuminate\Console\Command;
 use Symfony\Component\Process\Exception\ProcessFailedException;
@@ -15,7 +15,7 @@ class Install extends Command
      *
      * @var string
      */
-    protected $signature = 'erpnet:permissions:install
+    protected $signature = 'erpnet:s-cart-template:install
                                 {--timeout=300} : How many seconds to allow each process to run.
                                 {--debug} : Show process output or not. Useful for debugging.';
 
@@ -24,7 +24,9 @@ class Install extends Command
      *
      * @var string
      */
-    protected $description = 'ErpNET\Permissions install and execute';
+    protected $provider = 'ErpNET\SCartTemplate\Providers\TServiceProvider';
+    protected $title = 'ErpNET\SCartTemplate';
+    protected $description = 'ErpNET\SCartTemplate install and execute';
 
     /**
      * Create a new command instance.
@@ -45,22 +47,22 @@ class Install extends Command
     {
         //
         //$this->info(" Backpack\Base installation started. Please wait...");
-        $this->progressBar = $this->output->createProgressBar(4);
+        $this->progressBar = $this->output->createProgressBar(2);
         $this->progressBar->start();
-        $this->info(" ErpNET\Permissions installation started. Please wait...");
+        $this->info($this->title." installation started. Please wait...");
         $this->progressBar->advance();
 
         $this->line(' Publishing files');
-        $this->executeProcess('php artisan vendor:publish --force  --provider="ErpNET\Permissions\Providers\ErpnetPermissionsServiceProvider" --tag=erpnetPermissions');
+        $this->executeProcess('php artisan vendor:publish --force  --provider="'.$this->provider.'"');
 
-        $this->line(' Configuring files');
-        $this->executeProcess('chmod +x permissions.sh');
+        //$this->line(' Configuring files');
+        //$this->executeProcess('chmod +x permissions.sh');
 
-        $this->line(' Start files');
-        $this->executeProcess('./permissions.sh');
+        //$this->line(' Start files');
+        //$this->executeProcess('./permissions.sh');
 
         $this->progressBar->finish();
-        $this->info(" ErpNET\Permissions installation finished.");
+        $this->info($this->title." installation finished.");
     }
 
     /**

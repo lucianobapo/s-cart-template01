@@ -1,0 +1,9 @@
+{
+    "name": "Tigresa Template",
+    "image": "images/logo.jpg",
+    "auth": "Luciano Porto",
+    "configKey": "tigresatemplate",
+    "email": "Your-email@email.com",
+    "website": "http://Your-link.com",
+    "version": "1.0.0"
+}
