@@ -53,7 +53,13 @@ class Install extends Command
         $this->progressBar->advance();
 
         $this->line(' Publishing files');
-        $this->executeProcess(['php artisan vendor:publish --force  --provider="'.$this->provider.'"']);
+        $this->executeProcess([
+            'php',
+            'artisan',
+            'vendor:publish',
+            '--force',
+            '--provider="'.$this->provider.'"',
+            ]);
 
         //$this->line(' Configuring files');
         //$this->executeProcess('chmod +x permissions.sh');
